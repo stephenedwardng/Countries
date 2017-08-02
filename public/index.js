@@ -1,5 +1,3 @@
-// persist in local storage
-
 var app = function(){
   var url = "https://restcountries.eu/rest/v2/all";
   makeRequest(url, requestComplete);
@@ -54,8 +52,6 @@ var populateSelect = function(countries){
     ul.appendChild(capitalLi);
   });
 }
-
-
 
 
 
