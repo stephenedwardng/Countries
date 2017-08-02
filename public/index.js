@@ -1,12 +1,14 @@
 var app = function(){
   var url = "https://restcountries.eu/rest/v2/all";
+  makeRequest(url, requestComplete);
 
-  var populateButton = document.querySelector("#populate-button");
-  populateButton.addEventListener('click', function(){
-    makeRequest(url, requestComplete)
-  });
+// grab the 'select' by its ID
+// For each of the countries from the country JSON object, create an 'option'
+// Add an event listener to the select
+// On select, display country details (name, population, capital)
 
-//  makeRequest(url, requestComplete);
+// persist in local storage
+
 }
 
 var makeRequest = function(url, callback){
@@ -25,16 +27,12 @@ var requestComplete = function(){
 }
 
 var populateList = function(countries){
-  var ul = document.getElementById('country-list');
-
-  while(ul.firstChild){
-    ul.removeChild(ul.firstChild);
-  }
+  var select = document.getElementById('country-select');
 
   countries.forEach(function(country){
-    var li = document.createElement('li');
-    li.innerText = country.name;
-    ul.appendChild(li);
+    var option = document.createElement('option');
+    option.innerText = country.name;
+    select.appendChild(option);
   })
 }
 
